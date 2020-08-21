@@ -1,0 +1,22 @@
+{
+  "name": "7csn/chaser-recorder",
+  "description": "日志",
+  "type": "library",
+  "require": {
+    "php": ">=7.1.0",
+    "ext-json": "*",
+    "7csn/chaser-helper": "dev-master"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "7csn",
+      "email": "1479672753@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "chaser\\recorder\\": "./"
+    }
+  }
+}
