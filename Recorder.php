@@ -100,7 +100,7 @@ class Recorder
     public function write(string $data, int $level = self::LEVEL_DEBUG)
     {
         file_put_contents(
-            $this->dir . DIRECTORY_SEPARATOR . self::getLevelName($level) . '-' . date('Ymd') . '.log',
+            $this->dir . DIRECTORY_SEPARATOR . self::getLevelName($level) . '.log',
             PHP_EOL . Helper::datetime() . PHP_EOL . self::format($data) . PHP_EOL,
             FILE_APPEND | LOCK_EX
         );
