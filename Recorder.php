@@ -94,10 +94,10 @@ class Recorder
     /**
      * 记录日志
      *
-     * @param string $data
+     * @param mixed $data
      * @param int $level
      */
-    public function write(string $data, int $level = self::LEVEL_DEBUG)
+    public function write($data, int $level = self::LEVEL_DEBUG)
     {
         file_put_contents(
             $this->dir . DIRECTORY_SEPARATOR . self::getLevelName($level) . '.log',
@@ -110,11 +110,12 @@ class Recorder
      * 格式化数据
      *
      * @param mixed $data
-     * @return bool|int|float|string
+     * @return string
      */
     public static function format($data)
     {
-        return (string)(is_scalar($data) ? $data : json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        $encode = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+        return $encode === false ? serialize($data) : $encode;
     }
 
     /**
